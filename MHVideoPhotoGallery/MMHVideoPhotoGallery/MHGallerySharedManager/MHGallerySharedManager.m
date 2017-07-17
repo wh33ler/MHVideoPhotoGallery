@@ -307,12 +307,17 @@
                                            if (jsonData.count) {
                                                NSMutableDictionary *dictToSave = [self durationDict];
                                                NSString *duration;
-                                               NSInteger intDuration;
-                                               if (jsonData[@"items"]){
+                                               NSInteger intDuration = 0;
+                                               @try {
                                                    duration = jsonData[@"items"][0][@"contentDetails"][@"duration"];
-                                                    NSInteger intDuration = [self integerFromYoutubeDurationString:duration];
-                                               } else intDuration = 0;
-                                               dictToSave[URL] = @(intDuration);
+                                                   intDuration = [self integerFromYoutubeDurationString:duration];
+                                               } @catch (NSException *exception) {
+                                                   
+                                               } @finally {
+                                                   
+                                               }
+                                               
+                                                                                             dictToSave[URL] = @(intDuration);
                                                [self setObjectToUserDefaults:dictToSave];
                                                NSString *thumbURL = nil;
                                                
