@@ -306,8 +306,12 @@
                                        dispatch_async(dispatch_get_main_queue(), ^(void){
                                            if (jsonData.count) {
                                                NSMutableDictionary *dictToSave = [self durationDict];
-                                               NSString *duration = jsonData[@"items"][0][@"contentDetails"][@"duration"];
-                                               NSInteger intDuration = [self integerFromYoutubeDurationString:duration];
+                                               NSString *duration;
+                                               NSInteger intDuration;
+                                               if (jsonData[@"items"]){
+                                                   duration = jsonData[@"items"][0][@"contentDetails"][@"duration"];
+                                                    NSInteger intDuration = [self integerFromYoutubeDurationString:duration];
+                                               } else intDuration = 0;
                                                dictToSave[URL] = @(intDuration);
                                                [self setObjectToUserDefaults:dictToSave];
                                                NSString *thumbURL = nil;
