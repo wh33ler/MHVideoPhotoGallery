@@ -306,13 +306,15 @@
                                                                                                   error:&error];
                                        dispatch_async(dispatch_get_main_queue(), ^(void){
                                            if (jsonData.count) {
-                                               id arrayDaya = jsonData[@"items"];
+                                               NSArray * arrayDaya = jsonData[@"items"];
                                                NSMutableDictionary *dictToSave = [self durationDict];
                                                NSString *duration;
                                                NSInteger intDuration = 0;
                                                if([arrayDaya isKindOfClass:[NSArray class]]) {
-                                                   duration = jsonData[@"items"][0][@"contentDetails"][@"duration"];
-                                                   intDuration = [self integerFromYoutubeDurationString:duration];
+                                                   if(arrayDaya.count >0){
+                                                       duration = jsonData[@"items"][0][@"contentDetails"][@"duration"];
+                                                       intDuration = [self integerFromYoutubeDurationString:duration];
+                                                   }
                                                }
                                                
                                               dictToSave[URL] = @(intDuration);
