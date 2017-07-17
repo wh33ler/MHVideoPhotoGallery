@@ -21,11 +21,11 @@
     self.title = @"ImageView";
     
     
-    MHGalleryItem *tailored = [[MHGalleryItem alloc]initWithURL:@"http://www.tailored-apps.com/wp-content/uploads/2014/01/wien_cropped-350x300.jpg"
-                                                        galleryType:MHGalleryTypeImage];
+    MHGalleryItem *tailored = [[MHGalleryItem alloc]initWithURL:@"https://www.youtube.com/watch?v=fMQ6WuTcsLE"
+                                                    galleryType:MHGalleryTypeVideo];
     
-    MHGalleryItem *hannes = [[MHGalleryItem alloc]initWithURL:@"http://www.tailored-apps.com/wp-content/uploads/2014/01/hannes.jpg"
-                                                    galleryType:MHGalleryTypeImage];
+    MHGalleryItem *hannes = [[MHGalleryItem alloc]initWithURL:@"https://www.youtube.com/watch?v=fMQ6WuTcsLE"
+                                                    galleryType:MHGalleryTypeVideo];
 
     
     NSArray *galleryItems = @[tailored,hannes];
